@@ -1,17 +1,25 @@
+video="";
+status="";
+function preload(){
 
-    function setup(){
-        canvas=createCanvas(380,380);
-        canvas.center();
+}
+function setup(){
+    canvas=createCanvas(480,380);
+    canvas.center();
+    canvas.position(550,250);
+    video=createCapture(VIDEO);
+    video.hide();
 
-        video = createCapture(VIDEO);
-	    video.hide();
-    }
-function start(){
-    console.log("start")
 }
 function draw(){
-    image(video, 0, 0, 600, 500);
-    
-	fill("#FF0000");
-	stroke("#FF0000");
+    image(video,0,0,480,380);
+}
+function start(){
+    objectDetector=ml5.objectDetector('cocossd',modelLoaded);
+    document.getElementById("status").innerHTML="Status: Dedecting video";
+}
+function modelLoaded(){
+    console.log("model is loaded");
+    status=true;
+
 }
