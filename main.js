@@ -55,7 +55,7 @@ function draw(){
           }
           else
           {
-            document.getElementById("object_status").innerHTML = object_name + " Not Found";
+            document.getElementById("conform").innerHTML = object_name + " Not Found";
           }          
          }
       }
